@@ -1,0 +1,4 @@
+name: BedKillMessages
+version: '0.1-BETA'
+main: me.wertytop.bedkillmessages.BedKillMessages
+api-version: 1.19
