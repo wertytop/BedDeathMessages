@@ -1,6 +1,5 @@
 package me.wertytop.bedkillmessages.Events;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,11 +30,21 @@ public class onDeath implements Listener {
         if (e.getEntity().getLastDamageCause() instanceof EntityDamageByBlockEvent cause) {
             if (cause.getCause() == EntityDamageEvent.DamageCause.BLOCK_EXPLOSION) {
                 e.getEntity();
-                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "gamerule showDeathMessages false");
-                Bukkit.broadcastMessage(e.getEntity().getDisplayName() + " blown up by " + lastBed.getDisplayName()+"'s bed");
-                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "gamerule showDeathMessages true");
+                if (e.getEntity() == lastBed){
+                    e.setDeathMessage(e.getEntity().getDisplayName() + " slept for the last time");
+
+                }else {
+                    e.setDeathMessage(e.getEntity().getDisplayName() + " was bed bombed by " + lastBed.getDisplayName());
+                }
 
             }
+            if (cause.getCause()==EntityDamageEvent.DamageCause.FIRE_TICK){
+                e.setDeathMessage(e.getEntity().getDisplayName() + " was toasted to death");
+            }
+            if (cause.getCause()==EntityDamageEvent.DamageCause.VOID){
+                e.setDeathMessage(e.getEntity().getDisplayName() + " tripped and fell into the void");
+            }
         }
+
     }
 }
