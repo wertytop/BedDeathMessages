@@ -1,12 +1,8 @@
 # BedDeathMessages
-Player death messages for when killed by a bed. 
+Player death messages for when killed by a beat
 
-### Instructions to build
-To build freezecheater, you must have `JDK 8` or higher on your system. 
-If not, download it [here](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)
+## Death Messages
 
-Clone this repository, then run the command: 
-- for linux, or mac: `./gradlew build`
-- on windows: `gradlew build`
-
-You will find a build in the `build/libs/` directory.
+`<Victim> was bed bombed by <Killer>`
+`<Victim slept for the last time`
+`<Victim> tripped and fell into the void`
